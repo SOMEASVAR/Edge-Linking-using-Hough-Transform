@@ -1,74 +1,105 @@
 # Edge-Linking-using-Hough-Transform
-## Aim:
+# AIM:
 To write a Python program to detect the lines using Hough Transform.
 
-## Software Required:
+# SOFTWARE REQUIRED:
 Anaconda - Python 3.7
 
-## Algorithm:
-### Step1:
-<br>
-
-### Step2:
-<br>
-
-### Step3:
-<br>
-
-### Step4:
-<br>
-
-### Step5:
-<br>
+# ALGORITHM:
+## Step 1:
+Import the neccessary packages such as cv2,numpy,matplotlib for the program.
 
 
-## Program:
-```Python
+## Step 2:
+Read the image and convert the image to greyscale image.
 
-# Read image and convert it to grayscale image
+## Step 3:
+Find the edges using canny edge detector.
 
 
+## Step 4:
+Detect the points from the line.
 
-# Find the edges in the image using canny detector and display
+
+## Step 5:
+Draw the lines on the image.
+
+## Step 6:
+Display the final output image.
 
 
 
-# Detect points that form a line using HoughLinesP
-
-
-
-# Draw lines on the image
-
-
-
-# Display the result
-
-
-
-
+# PROGRAM:
 ```
-## Output
+Program developed by: R.SOMEASVAR
+Register number: 212221230103
+```
 
-### Input image and grayscale image
-<br>
-<br>
-<br>
-<br>
+
+## Read image and convert it to grayscale image:
+```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+BGR_image=cv2.imread('chess.jpg')
+gray=cv2.cvtColor(BGR_image,cv2.COLOR_BGR2GRAY)
+Image= cv2.GaussianBlur(BGR_image,(3,3),0)
+plt.imshow(Image)
+```
+
+
+
+## Find the edges in the image using canny detector and display:
+```
+edges1 = cv2.Canny(Image,100,200)
+plt.imshow(edges1,cmap = 'gray')
+plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+plt.show()
+```
+
+
+
+## Detect points that form a line using HoughLinesP:
+```
+lines=cv2.HoughLinesP(edges1,1,np.pi/180, threshold=80, minLineLength=50,maxLineGap=250)
+```
+
+
+
+## Draw lines on the image:
+```
+for line in lines:
+    x1, y1, x2, y2 = line [0] 
+    cv2.line(BGR_image,(x1, y1),(x2, y2),(0, 0, 255),3)
+```
+
+
+
+## Display the result:
+```
+plt.imshow(BGR_image)
+```
+
+
+
+
+
+# OUTPUT:
+## Original image:
+![output](./chess.jpg)
+
+### Input image and grayscale image:
+![output](./grey.jpg)
+
 
 ### Canny Edge detector output
-<br>
-<br>
-<br>
-<br>
+![output](./canny.jpg)
 
 
 ### Display the result of Hough transform
-<br>
-<br>
-<br>
-<br>
+![output](./final.jpg)
 
 
 
-## Result:
+# RESULT:
 Thus the program is written with python and OpenCV to detect lines using Hough transform. 
