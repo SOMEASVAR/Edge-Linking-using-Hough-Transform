@@ -88,15 +88,15 @@ plt.imshow(BGR_image)
 ## Original image:
 ![output](./chess.jpg)
 
-### Input image and grayscale image:
+## Grayscale image:
 ![output](./grey.jpg)
 
 
-### Canny Edge detector output
+## Canny Edge detector output
 ![output](./canny.jpg)
 
 
-### Display the result of Hough transform
+## Display the result of Hough transform
 ![output](./final.jpg)
 
 
